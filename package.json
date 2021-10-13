@@ -1,6 +1,6 @@
 {
   "name": "kiss-react-state",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A React library to make your state management life esier, using React.Context and hooks",
   "author": "TachyonVFX, LDA <info@tachyonvfx.com>",
   "keywords": [
@@ -60,7 +60,8 @@
     "prebuild": "yarn clean",
     "build": "tsc --build \"./tsconfig.json\"",
     "copy-files": "copyfiles -u 1 src/style/base.css lib/",
-    "postbuild": "yarn run copy-files"
+    "postbuild": "yarn run copy-files",
+    "prepack": "yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
