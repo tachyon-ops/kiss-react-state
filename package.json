@@ -1,0 +1,90 @@
+{
+  "name": "react-context-state",
+  "version": "1.0.2",
+  "description": "A React library to make your state management life esier, using React.Context and hooks",
+  "author": "TachyonVFX, LDA <info@tachyonvfx.com>",
+  "keywords": [
+    "react",
+    "javascript",
+    "typescript",
+    "redux",
+    "redux-thunk",
+    "thunk",
+    "automate",
+    "simplify"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nmpribeiro/redux-auto-actions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nmpribeiro/redux-auto-actions"
+  },
+  "homepage": "https://github.com/nmpribeiro/redux-auto-actions/blob/master/README.md",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "private": false,
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.9",
+    "copyfiles": "^2.3.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'",
+    "clean": "rm -rf ./lib",
+    "prebuild": "yarn clean",
+    "build": "tsc --build \"./tsconfig.json\"",
+    "copy-files": "copyfiles -u 1 src/style/base.css lib/",
+    "postbuild": "yarn run copy-files"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-redux": "*",
+    "redux": "*",
+    "redux-thunk": "*"
+  }
+}
