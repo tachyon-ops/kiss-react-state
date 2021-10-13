@@ -101,8 +101,8 @@ export class StoreModule<ActionType extends string | number, S extends {}> {
     const actions: { [key: string]: (...args: any) => void } = {};
     if (newActions) {
       Object.entries(newActions).forEach(([key, value]) => {
-        actions[key] = (arg: any) => {
-          dispatch(value(arg));
+        actions[key] = (...arg: any) => {
+          dispatch(value(...arg));
         };
       });
     }
@@ -111,8 +111,8 @@ export class StoreModule<ActionType extends string | number, S extends {}> {
     } = {};
     if (newThunks) {
       Object.entries(newThunks).forEach(([key, value]) => {
-        thunks[key] = (args: any) => {
-          value(args)(dispatch as any, () => state, null);
+        thunks[key] = (...args: any) => {
+          value(...args)(dispatch as any, () => state, null);
         };
       });
     }
