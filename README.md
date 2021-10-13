@@ -1,4 +1,4 @@
-# SIMPLE-REACT-STATE
+# KISS-REACT-STATE
 
 <!-- STORY -->
 
@@ -10,7 +10,7 @@ The work was based on my previous `redux-auto-actions` library, and after gettin
 ## Import
 
 ```js
-import { StoreModule } from 'simple-react-state';
+import { StoreModule } from 'kiss-react-state';
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ import { StoreModule } from 'simple-react-state';
 
 ```ts
 import React from 'react';
-import { AnyAction, ProcessAction, StoreModule } from 'simple-react-state';
+import { AnyAction, ProcessAction, StoreModule } from 'kiss-react-state';
 
 enum ActionType {
   INCREMENT,
@@ -81,8 +81,8 @@ export { CountProvider, useCount };
 ```ts
 import React from 'react';
 
-import { CountProvider } from './count/CountContext';
-import { CountPage } from './count/Page';
+import { CountProvider } from './CountContext';
+import { CountPage } from './Page';
 import './App.css';
 
 export const App = () => (

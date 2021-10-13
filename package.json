@@ -1,5 +1,5 @@
 {
-  "name": "simple-react-state",
+  "name": "kiss-react-state",
   "version": "0.0.1",
   "description": "A React library to make your state management life esier, using React.Context and hooks",
   "author": "TachyonVFX, LDA <info@tachyonvfx.com>",
@@ -15,12 +15,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:nmpribeiro/redux-auto-actions.git"
+    "url": "git@github.com:nmpribeiro/kiss-react-state.git"
   },
   "bugs": {
-    "url": "https://github.com/nmpribeiro/redux-auto-actions"
+    "url": "https://github.com/nmpribeiro/kiss-react-state"
   },
-  "homepage": "https://github.com/nmpribeiro/redux-auto-actions/blob/master/README.md",
+  "homepage": "https://github.com/nmpribeiro/kiss-react-state/blob/master/README.md",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
