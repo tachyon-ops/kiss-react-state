@@ -1,4 +1,4 @@
-# REACT-CONTEXT-STATE
+# SIMPLE-REACT-STATE
 
 <!-- STORY -->
 
@@ -10,7 +10,7 @@ The work was based on my previous `redux-auto-actions` library, and after gettin
 ## Import
 
 ```js
-import { StoreModule } from 'react-context-state';
+import { StoreModule } from 'simple-react-state';
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ import { StoreModule } from 'react-context-state';
 
 ```ts
 import React from 'react';
-import { AnyAction, ProcessAction, StoreModule } from 'react-context-state';
+import { AnyAction, ProcessAction, StoreModule } from 'simple-react-state';
 
 enum ActionType {
   INCREMENT,

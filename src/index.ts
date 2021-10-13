@@ -1,4 +1,4 @@
-import { StoreModule } from './helpers/StoreModule';
+import { StoreModule } from './StoreModule';
 
 export interface Action<T = any> {
   type: T;

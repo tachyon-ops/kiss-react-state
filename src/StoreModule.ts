@@ -6,7 +6,7 @@ import {
   ProcessAction,
   SimpleAction,
   StoreModuleActions,
-} from '..';
+} from '.';
 
 export class StoreModule<ActionType extends string | number, S extends {}> {
   path: string;
