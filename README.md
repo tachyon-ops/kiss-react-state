@@ -135,6 +135,16 @@ Supper simple right? In 3 components, with very little boillerplate you can setu
 
 Have fun!
 
+### Performance
+
+```TypeScript
+Added 100 in 3ms
+Added 1 000 in 1ms
+Added 10 000 in 2ms
+Added 1 000 000 in 120ms
+Added 10 000 000 in 1045ms
+```
+
 ### Help with work
 
 Just fork and do a PR :) I will add you to the colaborators list with a BIG thank you!
