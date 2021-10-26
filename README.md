@@ -140,21 +140,21 @@ Have fun!
  `kiss-react-state`
 
 ```TypeScript
-Added 100 in 3ms
-Added 1 000 in 1ms
-Added 10 000 in 2ms
-Added 1 000 000 in 120ms
-Added 10 000 000 in 1045ms
+Added 100         in 3ms    | 3ms   | 2ms
+Added 1 000       in 3ms    | 1ms   | 1ms
+Added 10 000      in 1ms    | 1ms   | 2ms
+Added 1 000 000   in 115ms  | 126ms | 130ms
+Added 10 000 000  in 988ms  | 996ms | 979ms
 ```
 
  `react-redux`
 
 ```TypeScript
-Added 100 in 5ms
-Added 1 000 in 3ms
-Added 10 000 in 4ms
-Added 1 000 000 in 84ms
-Added 10 000 000 in 1459ms
+Added 100         in 4ms    | 6ms     | 7ms
+Added 1 000       in 1ms    | 2ms     | 3ms
+Added 10 000      in 2ms    | 3ms     | 2ms
+Added 1 000 000   in 116ms  | 154ms   | 152ms
+Added 10 000 000  in 1537ms | 1638ms  | 1588ms
 ```
 
 ### Help with work
