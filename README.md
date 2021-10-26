@@ -137,25 +137,55 @@ Have fun!
 
 ### Performance
 
+In order to be a bit more true to the test, we did 3 trials
+
+* Accumulating
+
  `kiss-react-state`
 
-```TypeScript
-Added 100         in 3ms    | 3ms   | 2ms
-Added 1 000       in 3ms    | 1ms   | 1ms
-Added 10 000      in 1ms    | 1ms   | 2ms
-Added 1 000 000   in 115ms  | 126ms | 130ms
-Added 10 000 000  in 988ms  | 996ms | 979ms
-```
+| Operation       | ms   | ms   | ms   |
+| :-------------- | ---: | ---: | ---: |
+|Added 100        | 3    | 3    | 3    |
+|Added 1 100      | 1    | 2    | 1    |
+|Added 11 100     | 2    | 2    | 2    |
+|Added 1 011 100  | 143  | 132  | 154  |
+|Added 11 011 100 | 1019 | 975  | 1026 |
+|Added 61 011 100 | 2303 | 2242 | 2228 |
 
  `react-redux`
 
-```TypeScript
-Added 100         in 4ms    | 6ms     | 7ms
-Added 1 000       in 1ms    | 2ms     | 3ms
-Added 10 000      in 2ms    | 3ms     | 2ms
-Added 1 000 000   in 116ms  | 154ms   | 152ms
-Added 10 000 000  in 1537ms | 1638ms  | 1588ms
-```
+| Operation       | ms   | ms   | ms   |
+| :-------------- | ---: | ---: | ---: |
+|Added 100        | 3    | 4    | 4    |
+|Added 1 100      | 1    | 2    | 2    |
+|Added 11 100     | 2    | 2    | 4    |
+|Added 1 011 100  | 97   | 114  | 94   |
+|Added 10 011 100 | 1543 | 1545 | 932  |
+|Added 30 011 100 | 3378 | 3212 | 2222 |
+
+* Resetting
+
+ `kiss-react-state`
+
+| Operation       | ms   | ms   | ms   |
+| :-------------- | ---: | ---: | ---: |
+|Added 100        | 1    | 1    | 1    |
+|Added 1 000      | 1    | 1    | 1    |
+|Added 10 000     | 2    | 2    | 2    |
+|Added 1 000 000  | 321  | 113  | 298  |
+|Added 10 000 000 | 1128 | 1072 | 1254 |
+|Added 50 000 000 | 2123 | 2347 | 2190 |
+
+ `react-redux`
+
+| Operation       | ms   | ms   | ms   |
+| :-------------- | ---: | ---: | ---: |
+|Added 100        | 3    | 2    | 3    |
+|Added 1 000      | 1    | 1    | 1    |
+|Added 10 000     | 2    | 2    | 2    |
+|Added 1 000 000  | 85   | 85   | 89   |
+|Added 10 000 000 | 1587 | 1573 | 1872 |
+|Added 50 000 000 | 5099 | 5147 | 4675 |
 
 ### Help with work
 
