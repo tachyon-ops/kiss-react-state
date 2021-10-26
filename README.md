@@ -137,12 +137,24 @@ Have fun!
 
 ### Performance
 
+ `kiss-react-state`
+
 ```TypeScript
 Added 100 in 3ms
 Added 1 000 in 1ms
 Added 10 000 in 2ms
 Added 1 000 000 in 120ms
 Added 10 000 000 in 1045ms
+```
+
+ `react-redux`
+
+```TypeScript
+Added 100 in 5ms
+Added 1 000 in 3ms
+Added 10 000 in 4ms
+Added 1 000 000 in 84ms
+Added 10 000 000 in 1459ms
 ```
 
 ### Help with work
