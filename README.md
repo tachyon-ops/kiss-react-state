@@ -10,7 +10,9 @@ The work was based on my previous `redux-auto-actions` library, and after gettin
 ## Import
 
 ```js
-import { StoreModule } from 'kiss-react-state';
+import {
+    StoreModule
+} from 'kiss-react-state';
 ```
 
 ## Usage
@@ -76,7 +78,7 @@ const CountProvider: React.FC = ({ children }) => (
 export { CountProvider, useCount };
 ```
 
-### 2 Now add the Context to the DOM `Provider` (adding to `App.ts`)
+### 2 Now add the Context to the DOM `Provider` (adding to `App.ts` )
 
 ```ts
 import React from 'react';
@@ -129,7 +131,7 @@ export function CountPage() {
 }
 ```
 
-Supper simple right? In 3 components, with very little boillerplate you can setup termendous amounts of power. Do keep an eye on re-renderers and now that you can setup any unmber of contexts you want, you could modulate your state way better than with redux. This way you run only specific hooks and can even provide update logics between stores by using `useEffect`. Be careful though! Every time you do that, double check you don't run into infinite loops or cyclic updates (ContextA Store -> updates -> ContextB Store -> which in turn updates Context A Store).
+Supper simple right? In 3 components, with very little boillerplate you can setup termendous amounts of power. Do keep an eye on re-renderers and now that you can setup any unmber of contexts you want, you could modulate your state way better than with redux. This way you run only specific hooks and can even provide update logics between stores by using `useEffect` . Be careful though! Every time you do that, double check you don't run into infinite loops or cyclic updates (ContextA Store -> updates -> ContextB Store -> which in turn updates Context A Store).
 
 Have fun!
 
@@ -137,7 +139,7 @@ Have fun!
 
 Just fork and do a PR :) I will add you to the colaborators list with a BIG thank you!
 
-- If you want to buy me a coffee or a beer as a thank you, I'm very much appreciated :stuck_out_tongue_winking_eye: [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D3J2WXTXLAWK8&source=url)
+* If you want to buy me a coffee or a beer as a thank you, I'm very much appreciated :stuck_out_tongue_winking_eye: [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D3J2WXTXLAWK8&source=url)
 
 ### Guidelines
 
@@ -152,4 +154,4 @@ Enjoy!
 
 ## Troubleshooting
 
-- Create an issue
+* Create an issue

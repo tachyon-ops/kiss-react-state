@@ -7,7 +7,12 @@
     }
   },
   "parser": "@typescript-eslint/parser",
-  "extends": ["airbnb", "prettier", "prettier/react", "prettier/standard"],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
+  ],
   "env": {
     "browser": true,
     "mocha": true,
@@ -15,8 +20,11 @@
     "jest": true,
     "es6": true
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
-
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks"
+  ],
   "rules": {
     /**
      * You can disable button-has-type,
@@ -34,21 +42,36 @@
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
-        "components": ["Link"],
-        "specialLink": ["to"]
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "to"
+        ]
       }
     ],
     "jsx-a11y/label-has-for": [
       2,
       {
         "required": {
-          "some": ["nesting", "id"]
+          "some": [
+            "nesting",
+            "id"
+          ]
         }
       }
     ],
     "no-underscore-dangle": 0,
     "no-debugger": 0,
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
     "import/no-named-as-default": 0,
     "import/prefer-default-export": 0,
     "object-shorthand": 0,
@@ -86,7 +109,6 @@
         "singleQuote": true
       }
     ],
-
     "no-unused-vars": 1,
     "@typescript-eslint/no-unused-vars": 1,
     "import/no-named-as-default-member": 0,
@@ -108,8 +130,15 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "paths": ["./src"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ],
+        "paths": [
+          "./src"
+        ]
       }
     }
   }

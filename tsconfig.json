@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["es2015", "dom"],
+    "lib": [
+      "es2015",
+      "es2017",
+      "dom"
+    ],
     "outDir": "lib",
     "jsx": "react",
-    "module": "commonjs",
+    "module": "esnext",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -22,9 +26,16 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules",
     "**/*.test.ts",
@@ -32,5 +43,7 @@
     "**/*.stories.tsx",
     "./src/setupTests.ts"
   ],
-  "files": ["./src/index.ts"]
+  "files": [
+    "./src/index.ts"
+  ]
 }
