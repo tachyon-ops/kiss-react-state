@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { fireEvent, getByTestId, render } from '@testing-library/react';
 
-import { StoreModule } from './StoreModule';
+import { SetupStore } from './SetupStore';
 
 type ElementType = {
   id: string;
@@ -17,7 +17,7 @@ enum ActionType {
 }
 type CountState = { elements: ElementType[] };
 
-const s = new StoreModule<ActionType, CountState>('', { elements: [] });
+const s = new SetupStore<ActionType, CountState>('', { elements: [] });
 
 /**
  * Exportable Actions
@@ -29,10 +29,9 @@ const addMultiple = s.setPayloadAction<ElementType[]>(
     elements: [...state.elements, ...action.payload],
   })
 );
-const reset = s.setSimpleAction(ActionType.RESET, () => s.initialState);
+const reset = s.setSimpleAction(ActionType.RESET, () => s.getInitialState());
 
-const AdditionContext = s.getContext();
-const useCount = s.useContext(AdditionContext, {
+const { Provider: AdditionProvider, useContext: useCount } = s.build({
   addMultiple: (els: ElementType[]) => addMultiple(els),
   reset,
 });
@@ -96,12 +95,6 @@ const AdditionRaw = () => {
     </div>
   );
 };
-
-const AdditionProvider: React.FC = ({ children }) => (
-  <AdditionContext.Provider value={s.getMemoValueHook()()}>
-    {children}
-  </AdditionContext.Provider>
-);
 
 const Addition = () => (
   <AdditionProvider>

@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { fireEvent, getByTestId, render } from '@testing-library/react';
 
-import { StoreModule } from './StoreModule';
-import { AnyAction, ProcessAction } from './index';
+import { AnyAction, ProcessAction, SetupStore } from './index';
 
 enum ActionType {
   INCREMENT,
@@ -12,7 +11,7 @@ enum ActionType {
 }
 type CountState = { counter: number };
 
-const s = new StoreModule<ActionType, CountState>('', { counter: 0 });
+const s = new SetupStore<ActionType, CountState>('', { counter: 0 });
 
 /**
  * Exportable Actions
@@ -31,7 +30,7 @@ const decrement = s.setPayloadAction<number>(
     counter: state.counter - action.payload,
   })
 );
-const reset = s.setSimpleAction(ActionType.RESET, () => s.initialState);
+const reset = s.setSimpleAction(ActionType.RESET, () => s.getInitialState());
 
 /**
  * Processees
@@ -44,9 +43,7 @@ const testAsync: TestAsyncProcess = (amount) => (dispatch) => {
   return true;
 };
 
-const CountContext = s.getContext();
-const useCount = s.useContext(
-  CountContext,
+const { Provider: CountProvider, useContext: useCount } = s.build(
   { increment: () => increment(1), decrement: () => decrement(1), reset },
   { testAsync: () => testAsync(10) }
 );
@@ -67,12 +64,6 @@ const Counter = () => {
     </div>
   );
 };
-
-const CountProvider: React.FC = ({ children }) => (
-  <CountContext.Provider value={s.getMemoValueHook()()}>
-    {children}
-  </CountContext.Provider>
-);
 
 const Count = () => (
   <CountProvider>
