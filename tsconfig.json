@@ -30,8 +30,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "isolatedModules": true
   },
   "include": [
     "src"
