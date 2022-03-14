@@ -101,9 +101,9 @@ export class StoreModule<ActionType extends string | number, S extends {}> {
       const [state, dispatch] = context;
 
       type OwnActionType = {
-        [P in keyof A]?: (...args: Parameters<A[P]>) => void;
+        [P in keyof A]: (...args: Parameters<A[P]>) => void;
       };
-      const actions: OwnActionType = {};
+      const actions: OwnActionType = Object();
 
       if (newActions) {
         Object.entries(newActions).forEach(([key, value]) => {
@@ -113,9 +113,9 @@ export class StoreModule<ActionType extends string | number, S extends {}> {
 
       type ProcessReturn = ReturnType<ReturnType<T[keyof T]>>;
       type OwnProcessType = {
-        [P in keyof T]?: (...args: Parameters<T[P]>) => ProcessReturn;
+        [P in keyof T]: (...args: Parameters<T[P]>) => ProcessReturn;
       };
-      const processes: OwnProcessType = {};
+      const processes: OwnProcessType = Object();
       if (newThunks) {
         Object.entries(newThunks).forEach(([key, value]) => {
           processes[key as keyof T] = (...args: any) =>
