@@ -37,28 +37,31 @@ const reset = s.setSimpleAction(ActionType.RESET, () => s.getInitialState());
  */
 type AppProcessType<R> = ProcessAction<R, CountState, null, AnyAction>;
 
-type TestAsyncProcess = (amount: number) => AppProcessType<boolean>;
-const testAsync: TestAsyncProcess = (amount) => (dispatch) => {
+type TestAsyncProcess = (amount: number) => AppProcessType<Promise<boolean>>;
+const testAsync: TestAsyncProcess = (amount) => async (dispatch) => {
   setTimeout(() => dispatch(increment(amount)), 1000);
   return true;
 };
 
 const { Provider: CountProvider, useContext: useCount } = s.build(
-  { increment: () => increment(1), decrement: () => decrement(1), reset },
-  { testAsync: () => testAsync(10) }
+  { increment, decrement, reset },
+  { testAsync }
 );
 
 const Counter = () => {
-  let { state, increment, decrement } = useCount();
+  let {
+    state,
+    actions: { increment, decrement },
+  } = useCount();
 
   return (
     <div className="App">
       <h1>Testing React Hooks</h1>
       <p data-testid="countvalue">{state.counter}</p>
-      <button data-testid="decrement" onClick={decrement}>
+      <button data-testid="decrement" onClick={() => decrement(1)}>
         -
       </button>
-      <button data-testid="increment" onClick={increment}>
+      <button data-testid="increment" onClick={() => increment(1)}>
         +
       </button>
     </div>

@@ -52,7 +52,7 @@ const decrement = s.setPayloadAction<number>(
 const reset = s.setSimpleAction(ActionType.RESET, () => s.getInitialState());
 
 /**
- * Processees
+ * Processes
  */
 type AppProcessType<R> = ProcessAction<R, CountState, null, AnyAction>;
 
@@ -63,8 +63,8 @@ const testAsync: TestAsyncProcess = (amount) => (dispatch) => {
 };
 
 const { Provider: CountProvider, useContext: useCount } = s.build(
-  { increment: () => increment(1), decrement: () => decrement(1), reset },
-  { testAsync: () => testAsync(10) }
+  { increment, decrement, reset },
+  { testAsync }
 );
 
 export { CountProvider, useCount };
@@ -97,12 +97,15 @@ import React from 'react';
 import { CountProvider, useCount } from './CountContext';
 
 export function Counter() {
-  const { increment, decrement, testAsync } = useCount();
+  const {
+    actions: { increment, decrement },
+    processes: { testAsync },
+  } = useCount();
   return (
     <>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
-      <button onClick={testAsync}>Test async (process/akind to thunk)</button>
+      <button onClick={() => increment(1)}>+</button>
+      <button onClick={() => decrement(1)}>-</button>
+      <button onClick={() => testAsync(10)}>Test async (process/akind to thunk)</button>
     </>
   );
 }

@@ -84,7 +84,9 @@ export class StoreModule<ActionType extends string | number, S extends {}> {
         | { [key: string]: (...args: any) => PayloadAction<ActionType, any> }
         | { [key: string]: (...args: any) => SimpleAction<ActionType> },
       T extends {
-        [key: string]: (...args: any) => ProcessAction<any, S, null, AnyAction>;
+        [key: string]: <R>(
+          ...args: any
+        ) => ProcessAction<R, S, null, AnyAction>;
       }
     >(
       contextArg: Context<[S, Dispatch<StoreModuleActions<ActionType>>]>,
@@ -98,31 +100,35 @@ export class StoreModule<ActionType extends string | number, S extends {}> {
       }
       const [state, dispatch] = context;
 
-      const actions: { [key: string]: (...args: any) => void } = {};
+      type OwnActionType = {
+        [P in keyof A]?: (...args: Parameters<A[P]>) => void;
+      };
+      const actions: OwnActionType = {};
+
       if (newActions) {
         Object.entries(newActions).forEach(([key, value]) => {
-          actions[key] = (...arg: any) => dispatch(value(...arg));
+          actions[key as keyof A] = (...arg: any) => dispatch(value(...arg));
         });
       }
-      const thunks: {
-        [key: string]: ProcessAction<any, S, null, AnyAction>;
-      } = {};
+
+      type ProcessReturn = ReturnType<ReturnType<T[keyof T]>>;
+      type OwnProcessType = {
+        [P in keyof T]?: (...args: Parameters<T[P]>) => ProcessReturn;
+      };
+      const processes: OwnProcessType = {};
       if (newThunks) {
         Object.entries(newThunks).forEach(([key, value]) => {
-          thunks[key] = (...args: any) =>
-            value(...args)(dispatch as any, () => state, null);
+          processes[key as keyof T] = (...args: any) =>
+            value(...args)(dispatch as any, () => state, null) as ProcessReturn;
         });
       }
+
       return {
         state,
         dispatch,
-        ...actions,
-        ...thunks,
-      } as {
-        state: S;
-        dispatch: Dispatch<StoreModuleActions<ActionType>>;
-      } & A &
-        T;
+        actions,
+        processes,
+      };
     };
 
   private resolve<T>(path: string, object: T, separator = '.'): S {

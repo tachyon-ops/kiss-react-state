@@ -37,7 +37,10 @@ const { Provider: AdditionProvider, useContext: useCount } = s.build({
 });
 
 const AdditionRaw = () => {
-  let { state, addMultiple, reset } = useCount();
+  let {
+    state,
+    actions: { addMultiple, reset },
+  } = useCount();
 
   const toLocaleNumber = (num: number) => {
     const firstPart = Number(num.toFixed(0))
