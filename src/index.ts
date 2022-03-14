@@ -1,4 +1,4 @@
-import { StoreModule } from './StoreModule';
+import { SetupStore } from './SetupStore';
 
 export interface Action<T = any> {
   type: T;
@@ -26,4 +26,4 @@ export type ProcessAction<R, S, E, A extends Action> = (
   extraArgument: E
 ) => R;
 
-export { StoreModule };
+export { SetupStore };
